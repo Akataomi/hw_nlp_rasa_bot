@@ -1,0 +1,21 @@
+version: "3.1"
+
+stories:
+  - story: collect candidate information
+    steps:
+    - intent: apply_position
+      entities:
+        - position
+    - action: utter_ask_skills
+    - intent: provide_skills
+      entities:
+        - skills
+    - action: utter_ask_salary
+    - intent: provide_salary
+      entities:
+        - expected_salary
+    - action: utter_ask_experience
+    - intent: provide_experience
+      entities:
+        - experience
+    - action: utter_thank_you

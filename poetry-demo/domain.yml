@@ -1,0 +1,64 @@
+version: "3.1"
+
+intents:
+  - greet
+  - apply_position
+  - provide_skills
+  - provide_salary
+  - provide_experience
+
+entities:
+  - position  # Добавлено определение сущности
+  - skills
+  - expected_salary
+  - experience
+
+slots:
+  name:
+    type: text
+    mappings:
+      - type: from_text
+  position:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: position
+  skills:
+    type: text
+    mappings:
+      - type: from_text
+  experience:
+    type: text
+    mappings:
+      - type: from_text
+  expected_salary:
+    type: float
+    mappings:
+      - type: from_text
+  suitability:
+    type: text
+    mappings:
+      - type: from_text
+
+responses:
+  utter_greet:
+    - text: "Здравствуйте! Я HR-бот, который поможет вам пройти первичное интервью. Как вас зовут?"
+    
+  utter_ask_position:
+    - text: "На какую позицию вы хотите подать заявку? У нас есть следующие вакансии: Project Manager, Data Analyst, Data Engineer, Data Scientist и MLOps Engineer."
+
+  utter_ask_skills:
+    - text: "Какие навыки у вас есть, которые могут быть полезны для этой позиции?"
+
+  utter_ask_salary:
+    - text: "Какую зарплату вы ожидаете на этой позиции?"
+
+  utter_ask_experience:
+    - text: "Какой у вас опыт работы в данной области?"
+
+  utter_thank_you:
+    - text: "Спасибо за ваши ответы! Я сейчас оценю ваше соответствие вакансии."
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

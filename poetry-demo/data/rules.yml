@@ -1,0 +1,9 @@
+version: "3.1"
+
+
+# rules:
+#   - rule: Submit application rule
+#     steps:
+#       - intent: submit_application
+#       - action: action_submit_application
+#       - action: utter_submit_application
